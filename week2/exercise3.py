@@ -1,14 +1,16 @@
 # -*- coding: UTF-8 -*-
 """Modify each function until the tests pass."""
 
-
 def is_odd(a_number):
     """Return True if a_number is odd, and False if a_number is even.
 
     Look into modulo division using the '%' operator as one way of doing this.
     """
-    return None
 
+    if (a_number % 2) != 0:
+        return ("True")
+    else:
+        return ("False") 
 
 def fix_it(moves=True, should_move=True):
     """Decide what to do.
