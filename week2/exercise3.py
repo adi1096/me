@@ -6,11 +6,7 @@ def is_odd(a_number):
 
     Look into modulo division using the '%' operator as one way of doing this.
     """
-
-    if (a_number % 2) != 0:
-        return ("True")
-    else:
-        return ("False") 
+    return bool(a_number%2)
 
 def fix_it(moves=True, should_move=True):
     """Decide what to do.
@@ -27,17 +23,30 @@ def fix_it(moves=True, should_move=True):
     Most people write this function with 4 return statements. 
     As an extra challenge, see if you can get that down to three.
     """
-    return None
 
+    if moves:
+        if should_move:
+            return "No Problem"
+        else:
+            return "Duct Tape"
+    else:
+        if should_move:
+            return "WD-40"
+        else:
+            return "No Problem"
 
-def loops_1a():
+def loops_1a(number_of_items_loop_1=10,symbol_11 = "*"):
     """Make 10 stars.
 
     Using a for loop
     return a list of 10 items, each one a string with exacly one star in it.
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
-    return None
+
+    my_stars = []
+    for i in range(number_of_items_loop_1):
+        my_stars.append(symbol_11)
+    return my_stars
 
 
 def loops_1c(number_of_items=5, symbol="#"):
@@ -47,7 +56,11 @@ def loops_1c(number_of_items=5, symbol="#"):
     string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
-    return None
+
+    my_list = []
+    for i in range(number_of_items):
+        my_list.append(symbol)
+    return my_list
 
 
 def loops_2():
@@ -68,7 +81,12 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    return None
+    number_of_items2=10
+    symbol_2 = ["*"]
+    n_list = []
+    for i in range(number_of_items2):
+        n_list.append(symbol_2*10)
+    return n_list
 
 
 def loops_3():
@@ -92,8 +110,13 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    return None
-
+    my_list = []
+    for i in range(10):
+        temp_list = []
+        for j in range(10):
+            temp_list.append(str(i))
+        my_list.append(temp_list)
+    return my_list
 
 def loops_4():
     """Make a block of numbers that rises left to right.
@@ -112,8 +135,13 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    return None
-
+    my_list = []
+    for i in range(10):
+        temp_list = []
+        for j in range(10):
+            temp_list.append(str(j))
+        my_list.append(temp_list)
+    return my_list
 
 def loops_5():
     """Make the coordinates of the block.
@@ -139,7 +167,13 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    return None
+    my_list = []
+    for i in range(10):
+        temp_list = []
+        for j in range(5):
+            temp_list.append("(i" + str(i) + ", "+ "j"+str(j)+")") 
+        my_list.append(temp_list)
+    return my_list
 
 
 def loops_6():
@@ -162,7 +196,14 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    return None
+        
+    my_list = []
+    for i in range(10):
+        temp_list = []
+        for j in range(10):
+            temp_list.append(str(j))
+        my_list.append(temp_list)
+    return my_list
 
 
 def loops_7():
@@ -186,8 +227,13 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    return None
-
+    my_list = []
+    for i in range(5):
+        temp_list = []
+        for j in range(10):
+            temp_list.append('*')
+        my_list.append(temp_list)
+    return my_list
 
 def lp(some_kind_of_list, exercise_name):
     """Help to see what's going on.

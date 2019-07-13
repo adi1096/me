@@ -3,25 +3,25 @@
 
 Modify each function until the tests pass.
 """
-
-
-def loop_ranger(start, stop=None, step=1):
+def loop_ranger(start, stop, step):
     """Return a list of numbers between start and stop in steps of step.
 
     Do this using any method apart from JUST using range()
     The look up the docs for range(), you can answer this with just the range 
     function, but we'd like you to do it the long way, probably using a loop.
     """
-    return None
-
+    my_list = []
+    while (start <=stop):
+        start=start+step
+        my_list.append(start)
+    return my_list
 
 def lone_ranger(start, stop, step):
     """Duplicate the functionality of range.
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    return None
-
+    return (start, stop, step)
 
 def two_step_ranger(start, stop):
     """Make a range that steps by 2.
@@ -29,8 +29,7 @@ def two_step_ranger(start, stop):
     Sometimes you want to hide complexity.
     Make a range function that always has a step size of 2
     """
-    return None
-
+    return range(start, stop,2)
 
 def stubborn_asker(low, high):
     """Ask for a number between low and high until actually given one.
@@ -40,8 +39,16 @@ def stubborn_asker(low, high):
 
     Look up the docs for input
     """
-    return None
-
+    message = "Give me a number between {low}, and {high}: ".format(low=low, 
+                                                                  high=high)
+    while True:
+        input_number = int(input(message))
+        if low < input_number < high:
+            print("Thanks! {} looks good.".format(input_number))
+            return input_number
+        else:
+            print("{input} isn't between {low}, and {high}".format(input=input_number, 
+                                                      low=low, high=high))
 
 def not_number_rejector(message):
     """Ask for a number repeatedly until actually given one.
