@@ -21,7 +21,8 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    return (start, stop, step)
+    lone_ranger = range(start,stop, step)
+    return lone_ranger
 
 def two_step_ranger(start, stop):
     """Make a range that steps by 2.
@@ -29,7 +30,8 @@ def two_step_ranger(start, stop):
     Sometimes you want to hide complexity.
     Make a range function that always has a step size of 2
     """
-    return range(start, stop,2)
+    two_step_ranger = range(start, stop, 2)
+    return two_step_ranger
 
 def stubborn_asker(low, high):
     """Ask for a number between low and high until actually given one.
