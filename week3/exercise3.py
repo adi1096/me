@@ -25,8 +25,20 @@ def advancedGuessingGame():
     Remember to think modular. Try to keep your functions small and single
     purpose if you can!
     """
-
+    lowerbound = not_number_rejector("Enter low bound: ")
+    upperbound = not_number_rejector("Enter upper bound: ")
+    actualNumber = random.randint(lowerbound, upperbound)
+    guessed = False
+    while not guessed:
+      guessedNumber = super_asker(lowerbound,upperbound)
+      if guessedNumber == actualNumber:
+        guessed = True
+      elif guessedNumber < actualNumber:
+        print("Too low, try again")
+      else:
+        print("Too high, try again")
     return "You got it!"
+
     # the tests are looking for the exact string "You got it!". Don't modify that!
 
 
