@@ -197,14 +197,15 @@ def loops_6():
     TIP: look out for the starting condition.
     """
         
-    my_list = []
+    my_list1 = []
+    length = 1
     for i in range(10):
-        temp_list = []
-        for j in range(10):
-            temp_list.append(str(j))
-        my_list.append(temp_list)
-    return my_list
-
+        my_list2 = []
+        for j in range(length):
+            my_list2.append(str(j))
+        length += 1
+        my_list1.append(my_list2)
+    return my_list1
 
 def loops_7():
     """Make a pyramid.
@@ -227,13 +228,19 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    my_list = []
+    loops_7_matrix = []
     for i in range(5):
-        temp_list = []
-        for j in range(10):
-            temp_list.append('*')
-        my_list.append(temp_list)
-    return my_list
+        loops_7_list = []
+        star = 1+(2*i)
+        space = int((9-star)/2)
+        for j in range(space):
+            loops_7_list.append(" ")
+        for j in range(star):
+            loops_7_list.append("*")
+        for j in range(space):
+            loops_7_list.append(" ")
+        loops_7_matrix.append(loops_7_list)
+    return loops_7_matrix
 
 def lp(some_kind_of_list, exercise_name):
     """Help to see what's going on.
