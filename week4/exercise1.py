@@ -36,8 +36,10 @@ def get_some_details():
     json_data = open(LOCAL + "/lazyduck.json").read()
 
     data = json.loads(json_data)
-    return {"lastName": None, "password": None, "postcodePlusID": None}
-
+    last = data["results"][0]["name"]["last"]
+    passC = data["results"][0]["login"]["password"]
+    postPlusID = data["results"][0]["location"]["postcode"] + int(data["results"][0]["id"]["value"])
+    return {"lastName": last, "password": passC, "postcodePlusID": postPlusID}
 
 def wordy_pyramid():
     """Make a pyramid out of real words.
@@ -74,8 +76,59 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &minLength=
     """
-    pass
+    template = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={length}"
+    nameList = []
+    length = 3
+    while length <= 20:
+        url = template.format(base = template, length = length)
+        r = requests.get(url)
+        if r.status_code is 200:
+            data = r.text
+            nameList.insert(int(len(nameList)/2),data)
+            #print(str(length)+ "\t" + data)
+            length += 1
+    nameList.reverse()
+    return nameList
 
+
+
+
+
+def pokedex(low=1, high=5):
+    """ Return the name, height and weight of the tallest pokemon in the range low to high.
+    Low and high are the range of pokemon ids to search between.
+    Using the Pokemon API: https://pokeapi.co get some JSON using the request library
+    (a working example is filled in below).
+    Parse the json and extract the values needed.
+    
+    TIP: reading json can someimes be a bit confusing. Use a tool like
+         http://www.jsoneditoronline.org/ to help you see what's going on.
+    TIP: these long json accessors base["thing"]["otherThing"] and so on, can
+         get very long. If you are accessing a thing often, assign it to a
+         variable and then future access will be easier.
+    """
+    template = "https://pokeapi.co/api/v2/pokemon/{id}"
+
+    
+    height = 0
+    weight = 0
+    name = ""
+    for i in range(low,high):
+        url = template.format(base=template, id=i)
+        r = requests.get(url)
+        if r.status_code is 200:
+            the_json = json.loads(r.text)
+            if the_json["height"] > height:
+                height = the_json["height"]
+                weight = the_json["weight"]
+                name = the_json["name"]
+
+    
+    return {"name": name, "weight": weight, "height": height}
+
+
+
+'''
 
 def wunderground():
     """Find the weather station for Sydney.
@@ -102,6 +155,9 @@ def wunderground():
     return {"state": None, "latitude": None, "longitude": None, "local_tz_offset": None}
 
 
+'''
+
+
 def diarist():
     """Read gcode and find facts about it.
 
@@ -115,6 +171,23 @@ def diarist():
     TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
          the test will have nothing to look at.
     """
+    
+    filepath = "week4/Trispokedovetiles(laser).gcode"
+    mode = "r" #for reading
+    laserReader = open(filepath,mode)
+    counter = 0
+    #laserOn = "M11 P1"
+    laserOff = "M10 P1"
+    for lineReader in laserReader:
+        #print(lineReader)
+        if laserOff in lineReader:
+            counter += 1
+    laserReader.close()
+    filepath = "./week4/lasers.pew"
+    mode = "w" # for writing
+    laserWriter = open(filepath,mode)
+    laserWriter.write(str(counter))
+    laserWriter.close()
     pass
 
 
