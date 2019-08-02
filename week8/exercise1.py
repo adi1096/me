@@ -11,7 +11,6 @@ You need to rename it to exercise1.py
 import string
 import time
 
-
 def greet(name="Towering Timmy"):
     """Return a greeting.
     return a string of "Hello" and the name argument.
@@ -21,22 +20,12 @@ def greet(name="Towering Timmy"):
 
     return greeting
 
-
 def three_counter(input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7]):
     """Count the number of 3s in the input_list.
     Return an integer.
     TIP: the test will use a different input_list, so don't just return 5
     """
-    '''
-    count = 0
-    for i in range(len(input_list)):
-        if input_list(i) == str(3):
-            count+=1
-        else:
-            break
-    '''
     count = input_list.count(3)
-
     return count
 
 def fizz_buzz():
@@ -103,9 +92,12 @@ def best_letter_for_pets():
     import string
 
     the_alphabet = string.ascii_lowercase
-
-    return ""
-
+    length = 0
+    for i in the_alphabet:
+        if len(pet_filter(i))>length:
+            new_letter = i
+            length = len(pet_filter(i))
+    return new_letter
 
 def make_filler_text_dictionary():
     """Make a dictionary of random words filler text.
