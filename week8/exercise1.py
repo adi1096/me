@@ -36,7 +36,7 @@ def three_counter(input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7]):
             break
     '''
     count = input_list.count(3)
-    
+
     return count
 
 def fizz_buzz():
@@ -51,10 +51,17 @@ def fizz_buzz():
     if it is. E.g. [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, ...]
     """
     fizzBuzzList = []
-    # your code here
+    for i in range(1,101):
 
+        if i%3 ==0 and i%5==0:
+            fizzBuzzList.append("FizzBuzz")
+        elif i%3 == 0:
+            fizzBuzzList.append("Fizz")
+        elif i%5 == 0:
+            fizzBuzzList.append("Buzz")
+        else:
+            fizzBuzzList.append(i)
     return fizzBuzzList
-
 
 def put_behind_bars(input_string="very naughty boy"):
     """Interleave the input_string with pipes.
