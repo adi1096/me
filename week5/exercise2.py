@@ -150,7 +150,6 @@ def draw_koch(drawing_method, steps_deep=4):
     trace = drawing_method(raphael, order=steps_deep, size=600)
     return trace
 
-
 def square_koch(t, order, size):
     r"""Draw a koch curve with a square rather than a triangular point.
 
