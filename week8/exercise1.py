@@ -91,7 +91,8 @@ def pet_filter(letter="a"):
             "hedgehog","guppy",]
     # fmt: on
 
-    return []
+    result = [k for k in pets if letter in k]
+    return result
 
 
 def best_letter_for_pets():
