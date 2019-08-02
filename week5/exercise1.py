@@ -211,10 +211,6 @@ def wordy_pyramid(api_key):
         "&maxLength={length}"
         "&limit=1"
     )
-
-
-
-
     pyramid_list = []
     for i in range(3, 21, 2):
         url = baseURL.format(api_key="", length=i)
@@ -277,4 +273,4 @@ def list_of_words_with_lengths(list_of_lengths):
 
 if __name__ == "__main__":
     do_bunch_of_bad_things()
-    wordy_pyramid("a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+    wordy_pyramid("plfp7rgsyhxqxzcy40jg0twk2e5gor9fhps8n6qfvcv6swfew")
