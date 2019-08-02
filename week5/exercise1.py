@@ -231,6 +231,7 @@ def wordy_pyramid(api_key):
     return pyramid_list
 
 '''
+
 def get_a_word_of_length_n(length):
     import requests
     if type(length) is int:
@@ -252,6 +253,7 @@ def get_a_word_of_length_n(length):
     else:
         message = "Length must be an integer and above 3"
         return None
+
 
 def list_of_words_with_lengths(list_of_lengths):
     import requests
