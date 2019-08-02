@@ -90,10 +90,6 @@ def wordy_pyramid():
     nameList.reverse()
     return nameList
 
-
-
-
-
 def pokedex(low=1, high=5):
     """ Return the name, height and weight of the tallest pokemon in the range low to high.
     Low and high are the range of pokemon ids to search between.
@@ -126,8 +122,6 @@ def pokedex(low=1, high=5):
     
     return {"name": name, "weight": weight, "height": height}
 
-
-
 '''
 
 def wunderground():
@@ -154,9 +148,7 @@ def wunderground():
 
     return {"state": None, "latitude": None, "longitude": None, "local_tz_offset": None}
 
-
 '''
-
 
 def diarist():
     """Read gcode and find facts about it.
@@ -189,7 +181,6 @@ def diarist():
     laserWriter.write(str(counter))
     laserWriter.close()
     pass
-
 
 if __name__ == "__main__":
     functions = [
