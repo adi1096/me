@@ -126,7 +126,23 @@ def make_filler_text_dictionary():
 
     import requests
 
-    return {}
+    API = ("https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?"
+            "wordlength={length}"
+    )
+    tempList = []
+    fillerDict = {}
+    for length in range(3,8):
+        url = API.format(length = length)
+        tempList = []
+        for i in range(3):
+            r = requests.get(url)
+            #print(r.text)
+            tempList.append(r.text)
+        #print("break")
+        fillerDict[length] = tempList
+        #fillerDict
+
+    return fillerDict
 
 
 def random_filler_text(number_of_words=200):
@@ -139,9 +155,17 @@ def random_filler_text(number_of_words=200):
     TIP: you'll need the random library, 
         see line 77 of week4/hangman_leadboard.py for an example.
     """
+
     import random
 
-    return ""
+    wordDict = make_filler_text_dictionary()
+    wordList = []
+    for i in range(number_of_words):
+        length = random.randint(3,7)
+        word = random.randint(0,2)
+        wordList.append(wordDict[length][word])
+    paragraph = " ".join(wordList)
+    return paragraph
 
 
 def fast_filler(number_of_words=200):
@@ -158,7 +182,25 @@ def fast_filler(number_of_words=200):
 
     If you get this one to work, you are a Very Good Programmer™!
     """
+    import os
+    import json
+    import random
 
+    if not os.path.isfile("dict_racey.json"):
+        wordDict = make_filler_text_dictionary()
+        wordDictFile = open("dict_racey.json","w")
+        json.dump(wordDict, wordDictFile)
+        wordDictFile.close()
+
+    wordDictFile = open("dict_racey.json","r")
+    wordDict = json.load(wordDictFile)
+    wordList = []
+    for i in range(number_of_words):
+        length = str(random.randint(3,7))
+        word = random.randint(0,2)
+        wordList.append(wordDict[length][word])
+    paragraph = " ".join(wordList)
+    paragraph = paragraph[0].upper() + paragraph[1:] + "."
     return paragraph
 
 
